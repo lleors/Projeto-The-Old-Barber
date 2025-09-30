@@ -1,343 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Barbearia – Apresentação</title>
-    <meta
-      name="description"
-      content="Página de apresentação da barbearia com equipe, contatos via WhatsApp e localização."
-    />
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Old Barber</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
 
-    <style>
-      /* ===============================================
-         ⚙️ COMO PERSONALIZAR O FUNDO
-         1) Troque a URL em --bg-image pelo caminho da sua imagem
-            (local, CDN ou absoluta). Ex.: url('imagens/fundo.jpg')
-         2) Ajuste a opacidade da sobreposição em --overlay-opacity
-      ================================================ */
-      :root {
-        --bg-image: url("sua-imagem-de-fundo.jpg"); /* <- troque aqui */
-        --overlay-color: 0 0 0; /* preto (R G B) */
-        --overlay-opacity: 0.45; /* 0 a 1 */
-        --primary: #0f172a; /* azul-ardósia bem escuro */
-        --accent: #16a34a; /* verde (combina com WhatsApp) */
-        --text: #0b0f19; /* texto principal escuro */
-        --text-on-dark: #f8fafc; /* texto sobre fundo escuro */
-        --muted: #475569; /* texto secundário */
-        --card: #ffffff; /* fundo de cartões */
-        --radius: 18px; /* raio padrão */
-        --shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
-        --maxw: 1100px; /* largura máxima do conteúdo */
-      }
+  <header>
+    <img src="../img/Logo the old.jpeg" alt="The Old Barber Logo">
+    <h1>Bem-vindo à The Old Barber</h1>
+    <p>Tradição, estilo e confiança no seu corte</p>
+  </header>
 
-      /* Resetzinho básico */
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
-          Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
-          "Segoe UI Emoji";
-        color: var(--text);
-        line-height: 1.5;
-        background: linear-gradient(
-            rgba(var(--overlay-color) / var(--overlay-opacity)),
-            rgba(var(--overlay-color) / var(--overlay-opacity))
-          ),
-          var(--bg-image) center/cover no-repeat fixed;
-      }
+  <section class="barbeiros">
+    <div class="card">
+      <img src="../img/Felipe.jpg" alt="Barbeiro Felipe" class="felipe">
+      <h2>Felipe</h2>
+      <a href="https://wa.me/message/FWIVRCJH726DK1" target="_blank" class="whatsapp-btn">WhatsApp</a>
+    </div>
 
-      /* Layout geral */
-      .hero {
-        min-height: 58svh; /* área de destaque responsiva */
-        display: grid;
-        place-items: center;
-        padding: clamp(24px, 4vw, 64px) 16px;
-        color: var(--text-on-dark);
-        text-align: center;
-      }
-      .hero__inner {
-        max-width: var(--maxw);
-      }
-      .title {
-        margin: 0 0 12px;
-        font-size: clamp(28px, 6vw, 56px);
-        letter-spacing: 0.4px;
-        text-wrap: balance;
-      }
-      .subtitle {
-        margin: 0 auto;
-        max-width: 60ch;
-        font-size: clamp(14px, 2.2vw, 18px);
-        opacity: 0.95;
-      }
+    <div class="card">
+      <img src="../img/João.jpg" alt="Barbeiro João">
+      <h2>João</h2>
+      <a href="https://api.whatsapp.com/send?phone=5561991472061" target="_blank" class="whatsapp-btn">WhatsApp</a>
+    </div>
+  </section>
 
-      main {
-        margin: 0 auto;
-        max-width: var(--maxw);
-        padding: 24px clamp(16px, 4vw, 24px) 64px;
-      }
+  <section class="hours">
+    <h2>Horário de Funcionamento</h2>
+    <p>Todos os dias das 09:00 às 20:00</p>
+  </section>
 
-      /* Seção: Barbeiros */
-      .section-header {
-        margin: 16px 0 8px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .section-header h2 {
-        margin: 0;
-        font-size: clamp(20px, 3.2vw, 28px);
-        color: var(--primary);
-      }
-      .barbers {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: clamp(14px, 3vw, 22px);
-      }
-      @media (max-width: 720px) {
-        .barbers {
-          grid-template-columns: 1fr;
-        }
-      }
+<section class="location">
+  <h2>Localização</h2>
+  <div class="map-links">
+    <a href="https://www.google.com/maps?q=-16.00525,-48.05597" target="_blank">
+      <img src="../img/googlemaps.png" alt="Google Maps">
+    </a>
+    <a href="https://waze.com/ul?ll=-16.00525,-48.05597&navigate=yes" target="_blank">
+<img src="../img/waze.png" alt="Waze">    </a>
+    <a href="https://maps.apple.com/?ll=-16.00525,-48.05597" target="_blank">
+      <img src="../img/applemapa.png" alt="Apple Maps">
+    </a>
+  </div>
+</section>
 
-      .card {
-        background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 160px 1fr;
-        min-height: 180px;
-        isolation: isolate;
-      }
-      @media (max-width: 600px) {
-        .card {
-          grid-template-columns: 1fr;
-        }
-      }
 
-      .card__media {
-        position: relative;
-      }
-      .card__media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
 
-      .card__body {
-        padding: clamp(16px, 3.2vw, 22px);
-        display: grid;
-        align-content: center;
-        gap: 8px;
-      }
-      .name {
-        font-size: clamp(18px, 3vw, 22px);
-        margin: 0;
-      }
-      .role {
-        color: var(--muted);
-        margin: 0;
-      }
+  <footer>
+    <p>&copy; 2025 The Old Barber - Todos os direitos reservados</p>
+  </footer>
 
-      .actions {
-        margin-top: 8px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .btn {
-        --btn-bg: var(--accent);
-        --btn-fg: #fff;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: var(--btn-bg);
-        color: var(--btn-fg);
-        text-decoration: none;
-        font-weight: 600;
-        box-shadow: 0 6px 18px rgba(22, 163, 74, 0.28);
-        transition: transform 0.15s ease, filter 0.15s ease;
-      }
-      .btn:focus-visible {
-        outline: 3px solid rgba(22, 163, 74, 0.6);
-        outline-offset: 2px;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-        filter: brightness(1.03);
-      }
-      .btn svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      /* Seção: Localização */
-      .map-wrap {
-        margin-top: 26px;
-        background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-      .map {
-        aspect-ratio: 16 / 9; /* iframe responsivo */
-        width: 100%;
-        border: 0;
-        display: block;
-      }
-
-      /* Rodapé */
-      footer {
-        padding: 22px 16px;
-        text-align: center;
-        color: #e5e7eb;
-        background: rgba(2, 6, 23, 0.6);
-        backdrop-filter: blur(2px);
-      }
-
-      /* Acessibilidade e preferências */
-      @media (prefers-reduced-motion: reduce) {
-        .btn {
-          transition: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="hero" role="banner" aria-label="Destaque da Barbearia">
-      <div class="hero__inner">
-        <h1 class="title">Barbearia Clássica</h1>
-        <p class="subtitle">
-          Cortes, barba e cuidado de primeira — feitos por profissionais que
-          amam o que fazem. Agende pelo WhatsApp e venha nos visitar!
-        </p>
-      </div>
-    </header>
-
-    <main id="conteudo" role="main">
-      <section aria-labelledby="barbeiros-title">
-        <div class="section-header">
-          <h2 id="barbeiros-title">Nossos Barbeiros</h2>
-        </div>
-
-        <div class="barbers">
-          <!-- ====== BARBEIRO 1 ====== -->
-          <article class="card" aria-label="Barbeiro 1">
-            <div class="card__media" aria-hidden="true">
-              <img
-                src="barbeiro-1.jpg"
-                alt="Foto do barbeiro João"
-                loading="lazy"
-              />
-            </div>
-            <div class="card__body">
-              <h3 class="name">João Silva</h3>
-              <p class="role">Master Barber • 10+ anos de experiência</p>
-              <div class="actions">
-                <a
-                  class="btn"
-                  aria-label="Conversar no WhatsApp com João"
-                  href="https://wa.me/5599999999999?text=Ol%C3%A1%2C+gostaria+de+agendar+um+hor%C3%A1rio+com+Jo%C3%A3o"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <!-- Ícone WhatsApp (SVG inline) -->
-                  <svg viewBox="0 0 32 32" aria-hidden="true">
-                    <path
-                      fill="currentColor"
-                      d="M19.11 17.61a5.43 5.43 0 0 1-2.8-.92a10.14 10.14 0 0 1-1.63-1.3a6.08 6.08 0 0 1-1.07-1.33a2.39 2.39 0 0 1-.33-1.2a1.48 1.48 0 0 1 .46-1.1a.83.83 0 0 1 .61-.26h.47a.41.41 0 0 1 .37.22l.53 1.2c.06.13.05.24-.02.33l-.32.48a.54.54 0 0 0-.07.26c0 .09.03.18.1.28c.31.47.7.91 1.18 1.34c.52.46 1.02.8 1.49 1.03c.12.06.23.09.32.09c.08 0 .16-.03.24-.08l.59-.38c.12-.08.24-.1.36-.07l1.3.38c.17.05.27.15.3.31l.1.58c.03.2-.04.36-.2.48l-.63.49c-.19.15-.43.24-.71.26h-.05z"
-                    />
-                  </svg>
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- ====== BARBEIRO 2 ====== -->
-          <article class="card" aria-label="Barbeiro 2">
-            <div class="card__media" aria-hidden="true">
-              <img
-                src="barbeiro-2.jpg"
-                alt="Foto do barbeiro Pedro"
-                loading="lazy"
-              />
-            </div>
-            <div class="card__body">
-              <h3 class="name">Pedro Andrade</h3>
-              <p class="role">Especialista em barba e tesoura</p>
-              <div class="actions">
-                <a
-                  class="btn"
-                  aria-label="Conversar no WhatsApp com Pedro"
-                  href="https://wa.me/5588888888888?text=Ol%C3%A1%2C+gostaria+de+agendar+um+hor%C3%A1rio+com+Pedro"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <svg viewBox="0 0 32 32" aria-hidden="true">
-                    <path
-                      fill="currentColor"
-                      d="M19.11 17.61a5.43 5.43 0 0 1-2.8-.92a10.14 10.14 0 0 1-1.63-1.3a6.08 6.08 0 0 1-1.07-1.33a2.39 2.39 0 0 1-.33-1.2a1.48 1.48 0 0 1 .46-1.1a.83.83 0 0 1 .61-.26h.47a.41.41 0 0 1 .37.22l.53 1.2c.06.13.05.24-.02.33l-.32.48a.54.54 0 0 0-.07.26c0 .09.03.18.1.28c.31.47.7.91 1.18 1.34c.52.46 1.02.8 1.49 1.03c.12.06.23.09.32.09c.08 0 .16-.03.24-.08l.59-.38c.12-.08.24-.1.36-.07l1.3.38c.17.05.27.15.3.31l.1.58c.03.2-.04.36-.2.48l-.63.49c-.19.15-.43.24-.71.26h-.05z"
-                    />
-                  </svg>
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Localização -->
-      <section aria-labelledby="loc-title" class="map-wrap">
-        <h2 id="loc-title" class="visually-hidden">Localização</h2>
-        <!-- Substitua o src do iframe pelo seu embed do Google Maps:
-             1) Abra sua localização no Google Maps
-             2) Menu → Compartilhar → Incorporar um mapa → Copiar HTML → cole o src abaixo
-        -->
-        <iframe
-          class="map"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.941231!2d-46.655981!3d-23.573319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQmFyYmVhcmlh!5e0!3m2!1spt-BR!2sBR!4v0000000000"
-        ></iframe>
-      </section>
-    </main>
-
-    <footer>
-      © <span id="year"></span> Barbearia Clássica — Todos os direitos
-      reservados
-    </footer>
-
-    <script>
-      // Atualiza o ano automaticamente no rodapé
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-
-    <!-- Acessibilidade: classe utilitária para esconder visualmente títulos não essenciais -->
-    <style>
-      .visually-hidden {
-        position: absolute !important;
-        clip: rect(1px, 1px, 1px, 1px);
-        padding: 0 !important;
-        border: 0 !important;
-        height: 1px !important;
-        width: 1px !important;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-    </style>
-  </body>
+</body>
 </html>
